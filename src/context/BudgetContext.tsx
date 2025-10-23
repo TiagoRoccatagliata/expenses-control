@@ -3,7 +3,7 @@ import type { Dispatch, ReactNode } from "react"
 import { budgetReducer, initialState, type BudgetActions, type BudgetState } from "../reducers/budget-reducer"
 
 type BudgetContextProps = {
-    state: BudgetState 
+    state: BudgetState
     dispatch: Dispatch<BudgetActions>
 }
 
@@ -13,14 +13,14 @@ type BudgetProviderProps = {
 
 export const BudgetContext = createContext<BudgetContextProps>(null!)
 
-export const BudgetProveder = ({children} : BudgetProviderProps) => {
+export const BudgetProvider = ({ children }: BudgetProviderProps) => {
 
     const [state, dispatch] = useReducer(budgetReducer, initialState)
 
     return (
         <BudgetContext.Provider
             value={{
-                state, 
+                state,
                 dispatch
             }}
         >
